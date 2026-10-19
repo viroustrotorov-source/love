@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Любимой Алене</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF0EE; --ink:#3A1426; --soft:#7A4B5C; --accent:#B3365A; --line:#E6C9CF;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#2A0F1E;--ink:#F8E3E2;--soft:#D9AEB8;--accent:#F08FA8;--line:#5A2A40;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#2A0F1E;--ink:#F8E3E2;--soft:#D9AEB8;--accent:#F08FA8;--line:#5A2A40;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:1.3rem;line-height:1.75;-webkit-font-smoothing:antialiased}
+section{padding:clamp(3.5rem,10vw,7rem) 1.5rem}
+.wrap{max-width:36rem;margin:0 auto}
+
+/* hero */
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:2rem;padding-bottom:2rem}
+.heart{width:clamp(5rem,16vw,8rem);height:auto;overflow:visible}
+.heart path{fill:none;stroke:var(--accent);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:300;stroke-dashoffset:300;animation:draw 3.2s .3s ease forwards,fillin 1.6s 3s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fillin{to{fill:var(--accent)}}
+h1{font-weight:300;font-style:italic;font-size:clamp(4.5rem,23vw,11rem);line-height:1;margin:1.2rem 0 .6rem;letter-spacing:-.01em;opacity:0;animation:rise 1.6s 2.2s ease forwards}
+.sub{font-size:clamp(1.3rem,4.5vw,1.8rem);color:var(--soft);max-width:26rem;margin:0;opacity:0;animation:rise 1.6s 3s ease forwards}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.hint{position:absolute;bottom:max(1.5rem,env(safe-area-inset-bottom,0px));font:400 .85rem var(--sans);color:var(--soft);opacity:0;animation:rise 1.2s 4.4s ease forwards}
+.hero{position:relative}
+
+/* letter */
+.letter p{margin:0 0 1.5em}
+.letter p:first-child::first-letter{font-size:3.6em;float:left;line-height:.8;padding:.08em .1em 0 0;color:var(--accent);font-style:italic}
+.sign{font-style:italic;color:var(--accent);font-size:1.5rem;margin-top:2rem}
+
+/* reasons */
+.reasons{border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+.reasons h2,.final h2{font-weight:500;font-style:italic;font-size:clamp(1.9rem,6vw,2.6rem);line-height:1.2;margin:0 0 2rem}
+.card{min-height:9.5rem;display:flex;align-items:center;justify-content:center;font-size:clamp(1.6rem,5.5vw,2.2rem);line-height:1.35;font-weight:300;transition:opacity .35s ease,transform .35s ease}
+.card.out{opacity:0;transform:translateY(8px)}
+.count{font:400 .85rem var(--sans);color:var(--soft);margin:1.2rem 0 1.6rem}
+button{font:600 1rem var(--sans);cursor:pointer;border-radius:999px;border:1.5px solid var(--accent);padding:.85rem 1.7rem;background:transparent;color:var(--accent);transition:background .2s,color .2s}
+button:hover{background:var(--accent);color:var(--bg)}
+button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+
+/* final */
+.final{text-align:center;position:relative;overflow:hidden}
+.final p.big{font-size:clamp(1.6rem,5.5vw,2.3rem);font-weight:300;line-height:1.4;margin:0 0 2.2rem}
+.reply{min-height:3.5rem;margin-top:2rem;font-size:1.6rem;font-style:italic;color:var(--accent);opacity:0;transition:opacity 1s}
+.reply.on{opacity:1}
+.petal{position:fixed;pointer-events:none;width:14px;height:14px;background:var(--accent);transform:rotate(-45deg);z-index:5;opacity:.9}
+.petal::before,.petal::after{content:"";position:absolute;width:14px;height:14px;background:var(--accent);border-radius:50%}
+.petal::before{left:-7px}.petal::after{top:-7px}
+footer{text-align:center;color:var(--soft);font:400 .85rem var(--sans);padding:0 1.5rem 3rem}
+@media (prefers-reduced-motion:reduce){
+  .heart path{animation:none;stroke-dashoffset:0;fill:var(--accent)}
+  h1,.sub,.hint{animation:none;opacity:1}
+  .card{transition:none}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <svg class="heart" viewBox="0 0 100 90" aria-hidden="true"><path d="M50 82C10 52 4 30 20 16 32 6 46 12 50 24 54 12 68 6 80 16 96 30 90 52 50 82Z"/></svg>
+  <h1>Алена</h1>
+  <p class="sub">Моя любимая жена. Мой котик. Главное счастье и смысл жизни.</p>
+  <span class="hint">Вниз</span>
+</section>
+
+<section class="letter">
+  <div class="wrap">
+    <p>Я часто думаю о том, как мне повезло, и часто очень сильно ревную, потому что люблю, и боюсь потерять.</p>
+    <p>Ты для меня не просто человек рядом. Ты смысл моей жизни. рядом с тобой все становится легче, приятнее и красивее (прям как ты). Можно быть уставшим, смешным, любым - и всё равно быть любимым.</p>
+    <p>Спасибо, что выбрала меня. Спасибо за терпение, когда я его не заслуживал. За смех. За любовь. За заботу, о которой ты даже не говоришь вслух. За то, что обычные дни с тобой становятся особенными, ты ничего для этого не делаешь, просто остаёшься собой. Извини меня за все мои ошибки, и за все ссоры. Я их не хочу, и не хотел когда либо</p>
+    <p>Я не обещаю быть идеальным. Я обещаю быть рядом, слушать тебя, беречь тебя и любить каждый день.</p>
+    <p class="sign">Твой любимый муж</p>
+  </div>
+</section>
+
+<section class="reasons">
+  <div class="wrap">
+    <h2>За что я тебя люблю</h2>
+    <div class="card" id="card" aria-live="polite">За твою доброту</div>
+    <div class="count" id="count">1 из 8</div>
+    <button id="next" type="button">Ещё одна причина</button>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Алена, мой котик, я люблю тебя.</h2>
+    <p class="big">Сегодня, завтра; Всегда.</p>
+    <button id="love" type="button">Нажми, если любишь меня тоже</button>
+    <div class="reply" id="reply" aria-live="polite"></div>
+  </div>
+</section>
+
+<footer>Сделано с безумной любовью от твоего котика :)</footer>
+
+<script>
+(function(){
+  var reasons=[
+    "За твою доброту.",
+    "За то, что рядом с тобой даже обычный вечер - лучший.",
+    "За твою улыбку, которая меняет мой день, даже когда ты этого не замечаешь.",
+    "За то, что ты видишь меня настоящим - и остаёшься.",
+    "За опору, когда у меня самого нет сил.",
+    "За то, что с тобой я хочу быть лучше.",
+    "За то, что ты - мой дом, не смотря на расстояние.",
+    "Просто за то, что ты есть :)."
+  ];
+  var i=0,card=document.getElementById("card"),count=document.getElementById("count");
+  document.getElementById("next").addEventListener("click",function(){
+    i=(i+1)%reasons.length;
+    card.classList.add("out");
+    setTimeout(function(){
+      card.textContent=reasons[i];
+      count.textContent=(i+1)+" из "+reasons.length;
+      card.classList.remove("out");
+    },300);
+  });
+
+  var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reply=document.getElementById("reply");
+  document.getElementById("love").addEventListener("click",function(e){
+    reply.textContent="А я тебя ещё больше :)";
+    reply.classList.add("on");
+    if(reduce)return;
+    var r=e.currentTarget.getBoundingClientRect(),x0=r.left+r.width/2,y0=r.top+r.height/2;
+    for(var k=0;k<26;k++){
+      (function(){
+        var p=document.createElement("span");
+        p.className="petal";
+        p.style.left=x0+"px";p.style.top=y0+"px";
+        document.body.appendChild(p);
+        var dx=(Math.random()-.5)*360,dy=-(120+Math.random()*320),s=.6+Math.random()*.9;
+        var a=p.animate([
+          {transform:"translate(0,0) rotate(-45deg) scale("+s+")",opacity:.95},
+          {transform:"translate("+dx+"px,"+dy+"px) rotate("+(-45+(Math.random()-.5)*120)+"deg) scale("+s+")",opacity:0}
+        ],{duration:1800+Math.random()*1400,easing:"cubic-bezier(.2,.7,.3,1)",delay:Math.random()*250});
+        a.onfinish=function(){p.remove()};
+      })();
+    }
+  });
+})();
+</script>
+</body>
+</html>
